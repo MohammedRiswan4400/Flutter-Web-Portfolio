@@ -1,9 +1,15 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio_web/view/controller/tab_controller_handler.dart';
+import 'package:flutter_portfolio_web/view/home/home.dart';
+import 'package:flutter_portfolio_web/view/home/screen_about.dart';
+import 'package:flutter_portfolio_web/view/home/screen_projects.dart';
 import 'package:flutter_portfolio_web/view/widgets/app_widgets.dart';
+import 'package:flutter_portfolio_web/view/widgets/bottom_bar.dart';
 import 'package:flutter_portfolio_web/view/widgets/content_view.dart';
 import 'package:flutter_portfolio_web/view/widgets/custome_tab_bar_view.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class ScreenHome extends StatefulWidget {
   ScreenHome({super.key});
@@ -14,40 +20,29 @@ class ScreenHome extends StatefulWidget {
 
 class _ScreenHomeState extends State<ScreenHome>
     with SingleTickerProviderStateMixin {
+  ItemScrollController? itemScrollController;
   var scaffoldKey = GlobalKey<ScaffoldState>();
   TabController? tabController;
 
   List<ContentView> contentview = [
     ContentView(
-      tab: const CustomeTab(
-        title: 'Home',
-      ),
-      content: Container(
-        color: Colors.amberAccent,
-        height: 80,
-        width: 80,
-      ),
-    ),
+        tab: const CustomeTab(
+          title: 'Home',
+        ),
+        content: const Home()),
     ContentView(
       tab: const CustomeTab(title: 'About'),
-      content: Container(
-        color: const Color.fromARGB(255, 7, 255, 98),
-        height: 80,
-        width: 80,
-      ),
+      content: ScreenAbout(),
     ),
     ContentView(
       tab: const CustomeTab(title: 'Projects'),
-      content: Container(
-        color: const Color.fromARGB(255, 255, 7, 143),
-        height: 80,
-        width: 80,
-      ),
+      content: const ScreenProjects(),
     ),
   ];
   @override
   void initState() {
     tabController = TabController(length: contentview.length, vsync: this);
+    itemScrollController = ItemScrollController();
     super.initState();
   }
 
@@ -73,7 +68,7 @@ class _ScreenHomeState extends State<ScreenHome>
                 children: contentview.map((e) => e.content).toList(),
               );
             } else {
-              return mobilePhoneView();
+              return mobilePhoneView(contentview);
               // MobilePhoneView(
               //   screenWidth: kWidth,
               //   childrenTabs: contentview.map((e) => e.tab).toList(),
@@ -85,7 +80,7 @@ class _ScreenHomeState extends State<ScreenHome>
     );
   }
 
-  Widget mobilePhoneView() {
+  Widget mobilePhoneView(List<ContentView> contentvie) {
     final screenWidth = MediaQuery.of(context).size.width;
     return Padding(
       padding:
@@ -104,6 +99,14 @@ class _ScreenHomeState extends State<ScreenHome>
               icon: const Icon(Icons.menu_open_rounded),
               color: Colors.white,
             ),
+            Expanded(
+                child: ScrollablePositionedList.builder(
+              itemScrollController: itemScrollController,
+              itemCount: contentvie.length,
+              itemBuilder: (context, index) {
+                return contentvie[index].content;
+              },
+            ))
             // DrawerWidget(children: childrenTabs)
           ],
         ),
@@ -133,7 +136,13 @@ class _ScreenHomeState extends State<ScreenHome>
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        onTap: () {},
+                        onTap: () {
+                          itemScrollController!.scrollTo(
+                            index: contentview.indexOf(e),
+                            duration: const Duration(milliseconds: 3),
+                          );
+                          Navigator.pop(context);
+                        },
                       ),
                     ),
                   ))
@@ -165,6 +174,7 @@ class MobilePhoneView extends StatelessWidget {
             icon: const Icon(Icons.menu_open_rounded),
             color: Colors.white,
           ),
+          // Expanded(child: ListView.builder(itemBuilder: conte))
           // DrawerWidget(children: childrenTabs)
         ],
       ),
@@ -192,10 +202,18 @@ class DesktopView extends StatelessWidget {
       children: [
         CostumeTabBarView(tabController: controller, tabs: tabs),
         Container(
-          color: Colors.amberAccent,
-          height: screenHeight * 0.85,
-          child: TabBarView(controller: controller, children: children),
+          color: const Color.fromARGB(255, 26, 26, 28),
+          height: screenHeight * 0.80,
+          child: TabControllerHandler(
+            tabController: controller,
+            child: TabBarView(
+              controller: controller,
+              physics: const AlwaysScrollableScrollPhysics(),
+              children: children,
+            ),
+          ),
         ),
+        const WidgetBottomBar()
       ],
     );
   }

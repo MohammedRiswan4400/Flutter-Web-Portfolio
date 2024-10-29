@@ -27,7 +27,7 @@ class CostumeTabBarView extends StatelessWidget {
             tabs: tabs,
             controller: tabController,
             dividerColor: Colors.black,
-            indicatorColor: Colors.pinkAccent,
+            indicatorColor: Colors.white,
           ),
         ),
       ),
