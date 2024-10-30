@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio_web/view/core/const.dart';
+import 'package:flutter_portfolio_web/core/const.dart';
 import 'package:flutter_portfolio_web/view/home/screen_about.dart';
 import 'package:flutter_portfolio_web/view/widgets/google_fonts.dart';
 import 'package:flutter_portfolio_web/view/widgets/navigation_arrow.dart';
@@ -18,7 +18,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     animationController = AnimationController(
-        vsync: this, duration: Duration(microseconds: 3000));
+        vsync: this, duration: const Duration(milliseconds: 1000));
     animationController!.forward();
     super.initState();
   }
@@ -129,13 +129,18 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   }
 
   Widget subHeader(String text, double fontSize) {
-    return FadeTransition(
-      opacity: animationController!,
-      child: CustomeGoogleFont(
-        text: text,
-        size: fontSize,
-        weight: FontWeight.w500,
-        color: Colors.grey,
+    return SlideTransition(
+      position:
+          Tween<Offset>(begin: const Offset(0.5, 0), end: const Offset(0, 0))
+              .animate(animationController!),
+      child: FadeTransition(
+        opacity: animationController!,
+        child: CustomeGoogleFont(
+          text: text,
+          size: fontSize,
+          weight: FontWeight.w500,
+          color: Colors.grey,
+        ),
       ),
     );
     // Text(

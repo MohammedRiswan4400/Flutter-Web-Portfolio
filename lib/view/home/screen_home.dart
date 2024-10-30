@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio_web/view/controller/tab_controller_handler.dart';
+import 'package:flutter_portfolio_web/controller/tab_controller_handler.dart';
 import 'package:flutter_portfolio_web/view/home/home.dart';
 import 'package:flutter_portfolio_web/view/home/screen_about.dart';
 import 'package:flutter_portfolio_web/view/home/screen_projects.dart';
@@ -36,7 +36,7 @@ class _ScreenHomeState extends State<ScreenHome>
     ),
     ContentView(
       tab: const CustomeTab(title: 'Projects'),
-      content: const ScreenProjects(),
+      content: ScreenProjects(),
     ),
   ];
   @override

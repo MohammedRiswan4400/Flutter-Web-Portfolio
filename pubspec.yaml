@@ -40,8 +40,10 @@ dependencies:
   google_fonts: ^6.2.1
   auto_size_text: ^3.0.0
   scrollable_positioned_list: ^0.3.8
-  syncfusion_flutter_pdfviewer: ^27.1.56
+  # syncfusion_flutter_pdfviewer: ^27.1.56
   device_preview: ^1.2.0
+  hovering: ^1.0.4
+  flutter_card_swiper: ^7.0.2
   
 
 

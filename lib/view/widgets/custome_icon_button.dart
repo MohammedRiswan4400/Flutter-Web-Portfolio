@@ -26,11 +26,9 @@ class CustomeIconButton extends StatelessWidget {
       highlightColor: Colors.transparent,
     );
   }
+}
 
-  void openURL(String url) async {
-    final uri = Uri.parse(url);
-    await canLaunchUrl(uri)
-        ? await launchUrl(uri)
-        : throw 'Could not luanch URL';
-  }
+void openURL(String url) async {
+  final uri = Uri.parse(url);
+  await canLaunchUrl(uri) ? await launchUrl(uri) : throw 'Could not luanch URL';
 }

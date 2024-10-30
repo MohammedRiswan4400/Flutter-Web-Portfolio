@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio_web/view/core/const.dart';
+import 'package:flutter_portfolio_web/core/const.dart';
+import 'package:flutter_portfolio_web/view/home/screen_resume.dart';
 import 'package:flutter_portfolio_web/view/widgets/custome_icon_button.dart';
 import 'package:flutter_portfolio_web/view/widgets/google_fonts.dart';
 import 'package:flutter_portfolio_web/view/widgets/navigation_arrow.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class ScreenAbout extends StatefulWidget {
   const ScreenAbout({super.key});
@@ -30,6 +30,13 @@ class _ScreenAboutState extends State<ScreenAbout>
     animationImageController!.forward();
     animationController!.forward();
     super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    precacheImage(const AssetImage(WebImages.devRoom1Image), context);
+    precacheImage(const AssetImage(WebImages.devRoom2Image), context);
+    super.didChangeDependencies();
   }
 
   @override
@@ -135,7 +142,7 @@ class _ScreenAboutState extends State<ScreenAbout>
                           ),
                           GestureDetector(
                             onTap: () {
-                              bottomSheetResume(context);
+                              // bottomSheetResume(context);
                               // Navigator.of(context).push(MaterialPageRoute(
                               //   builder: (context) {
                               //     return ScreenResume();
@@ -230,7 +237,8 @@ class _ScreenAboutState extends State<ScreenAbout>
             ),
             GestureDetector(
               onTap: () {
-                bottomSheetResume(context);
+                ScaffoldMessenger(child: Text('data'));
+                // bottomSheetResume(context);
                 // Navigator.of(context).push(MaterialPageRoute(
                 //   builder: (context) {
                 //     return ScreenResume();
@@ -245,8 +253,9 @@ class _ScreenAboutState extends State<ScreenAbout>
             SizedBox(
               height: context.kHeight * 0.02,
             ),
-            // aboutSocialMedia(context),
-            devRoomMobile(context)
+            devRoomMobile(context),
+            SizedBox(height: context.kHeight * 0.020),
+            const Divider()
           ],
         ),
       ),
@@ -403,18 +412,18 @@ class _ScreenAboutState extends State<ScreenAbout>
           );
   }
 
-  Future bottomSheetResume(BuildContext context) {
-    return showDialog(
-      context: context,
-      builder: (context) {
-        return SfPdfViewer.asset(
-          // 'https://cdn.syncfusion.com/content/PDFViewer/flutter-succinctly.pdf',
-          'assets/Mohammed Riswan.pdf',
-          // key: _pdfViewerKey,
-        );
-      },
-    );
-  }
+  // Future bottomSheetResume(BuildContext context) {
+  //   return showDialog(
+  //     context: context,
+  //     builder: (context) {
+  //       return SfPdfViewer.asset(
+  //         // 'https://cdn.syncfusion.com/content/PDFViewer/flutter-succinctly.pdf',
+  //         'assets/Mohammed Riswan.pdf',
+  //         // key: _pdfViewerKey,
+  //       );
+  //     },
+  //   );
+  // }
 
   double getFondSize(bool isHeader, BuildContext context) {
     double fontsize = context.kWidth > 950 && context.kHeight > 550 ? 14 : 8;

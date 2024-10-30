@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio_web/view/controller/tab_controller_handler.dart';
+import 'package:flutter_portfolio_web/controller/tab_controller_handler.dart';
 
 class WidgetNavigationArrow extends StatelessWidget {
   const WidgetNavigationArrow({super.key, required this.isBackArrow});

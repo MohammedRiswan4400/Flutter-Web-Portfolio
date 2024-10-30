@@ -37,7 +37,8 @@ class WidgetBottomBar extends StatelessWidget {
                       width: kWidth * 0.021,
                     ),
                     const CustomeIconButton(
-                        url: 'https://github.com/MohammedRiswan4400',
+                        url:
+                            'https://www.linkedin.com/in/mohammed-riswan-mt?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
                         iconData: FontAwesomeIcons.linkedin,
                         color: Colors.white),
                     SizedBox(
