@@ -151,7 +151,7 @@ class _ScreenProjectsState extends State<ScreenProjects>
   }
 
   Widget mobilePhoneView() {
-    return SizedBox(
+    return Container(
       height: context.kHeight / 1.2,
       // color: Colors.amber,
       child: Padding(
@@ -167,35 +167,37 @@ class _ScreenProjectsState extends State<ScreenProjects>
               SizedBox(
                 height: context.kWidth * 0.61,
                 width: context.kWidth * 0.5,
-                child: Flexible(
-                  child: CardSwiper(
-                      controller: controller,
-                      cardsCount: projects.length,
-                      onSwipe: (index, previousIndex, direction) {
-                        setState(() {
-                          index == projects.length - 1
-                              ? selecTedIndexMobile = 0
-                              : selecTedIndexMobile = index + 1;
-                          animationController!.reset();
-                          animationController!.forward();
-                          log(index.toString());
-                        });
-                        return true; // Allow the swipe
-                      },
-                      // onUndo: _onUndo,
-                      numberOfCardsDisplayed: projects.length,
-                      backCardOffset: const Offset(50, -10),
-                      padding: const EdgeInsets.all(24.0),
-                      cardBuilder: (
-                        context,
-                        index,
-                        horizontalThresholdPercentage,
-                        verticalThresholdPercentage,
-                      ) {
-                        return ProjectImageOnMobile(project: projects[index]);
-                      }),
-                ),
+                child:
+                    // Flexible(
+                    //   child:
+                    CardSwiper(
+                        controller: controller,
+                        cardsCount: projects.length,
+                        onSwipe: (index, previousIndex, direction) {
+                          setState(() {
+                            index == projects.length - 1
+                                ? selecTedIndexMobile = 0
+                                : selecTedIndexMobile = index + 1;
+                            animationController!.reset();
+                            animationController!.forward();
+                            log(index.toString());
+                          });
+                          return true; // Allow the swipe
+                        },
+                        // onUndo: _onUndo,
+                        numberOfCardsDisplayed: projects.length,
+                        backCardOffset: const Offset(50, -10),
+                        padding: const EdgeInsets.all(24.0),
+                        cardBuilder: (
+                          context,
+                          index,
+                          horizontalThresholdPercentage,
+                          verticalThresholdPercentage,
+                        ) {
+                          return ProjectImageOnMobile(project: projects[index]);
+                        }),
               ),
+              // ),
               FadeTransition(
                   opacity: animationController!,
                   child: ProjectDetails(project: projects[selecTedIndexMobile]))
