@@ -37,41 +37,101 @@ class _ScreenProjectsState extends State<ScreenProjects>
 
   List<ProjectModel> projects = [
     ProjectModel(
-        title: 'CFA TVP',
-        dencription:
-            'I developed CFA TVP, a mobile application tailored for students of the Challengers Football Academy, using Flutter, Firebase, and the Provider package. The app enables students to easily track their personal progress with features like an improvement tracker, weekly performance charts, and highlights like the Performer of the Week. Additionally, users can stay updated with the latest academy news, including notable achievements, such as player selections for major events like the World Cup. This project emphasizes my ability to create focused, user-friendly apps with real-time updates and insights that bring value to sports enthusiasts and students alike.',
-        url: 'https://github.com/MohammedRiswan4400/CFA-TVP',
-        imageURL: 'assets/cfa tvp.jpg'),
+        title: 'IoT Bluetooth Terminal & Controller',
+        subTitle:
+            'A custom-built IoT controller app bridging Flutter with Arduino hardware via Bluetooth Classic (HC-05), featuring real-time data visualization.',
+        points: [
+          'Bi-Directional Communication: Enables sending commands and receiving real-time sensor data streams simultaneously.',
+          'Custom Protocol: Implemented efficient parsing for String and HEX data formats.',
+          'Terminal Interface: Built a developer-friendly chat-like terminal for debugging hardware responses.'
+        ],
+        tech: [
+          'Flutter',
+          'Dart',
+          'Bluetooth Classic',
+          'Arduino (C++)',
+          'Stream Handling'
+        ],
+        playStore: '',
+        gitHub: 'https://github.com/MohammedRiswan4400/flutter_hc05_controller',
+        imageURL: 'assets/logos/bluetooth-app-logo.png'),
     ProjectModel(
-        title: 'Focus Store',
-        dencription:
-            'I developed a mobile e-commerce app, Focus Store, using Flutter, Firebase, and Bloc for efficient state management. The app offers a wide range of products, including mobile phones, smartwatches, and headphones, with seamless integration of Razorpay for secure and convenient payment processing. This project allowed me to build an engaging user experience with a focus on responsive UI and streamlined shopping interactions.',
-        url: 'https://github.com/MohammedRiswan4400/Focus-store',
-        imageURL: 'assets/focusstore.png'),
+        title: 'Rays Sports Network Ecosystem',
+        subTitle:
+            'An enterprise-grade white-label solution powering 12+ custom club apps (including Ramblers, Blazing Bulls) from a single unified codebase.',
+        points: [
+          'Scalable Architecture: Designed a system where one codebase generates 12+ unique apps with different branding, reducing maintenance time by 70%.',
+          'Complex Modules: Integrated E-commerce for sports gear, Facility Booking, and Event Management.',
+          'Role-Based Access: Custom dashboards for Admins, Players, and Fans.'
+        ],
+        tech: [
+          'Flutter',
+          'Clean Architecture',
+          'BLoC',
+          'REST APIs',
+          'White-Labeling'
+        ],
+        playStore:
+            'https://play.google.com/store/apps/developer?id=Rays+Sports+Network+Inc.',
+        gitHub: '',
+        imageURL: 'assets/logos/rays-logo.png'),
     ProjectModel(
-        title: 'TMX Music',
-        dencription:
-            'I developed a mobile app called TMX Music using Flutter. It’s a dynamic, user-friendly music player designed to fetch songs directly from local storage, allowing users to enjoy their own music library. To ensure a responsive and consistent experience across screens, I used BLoC for state management, which streamlines state control and makes the app scalable for future features.\n\nThe app’s data is managed locally using the Hive database, enabling fast, offline access to music files. The design for TMX Music was crafted in Figma, ensuring a smooth, modern interface tailored to enhance the user experience. With intuitive navigation and efficient storage handling, TMX Music offers a clean, reliable music player experience.',
-        url: 'https://github.com/MohammedRiswan4400/TMX-MUSIC',
-        imageURL: 'assets/tmx.jpeg'),
+        title: 'Sync 360 - SaaS Sports Management',
+        subTitle:
+            'A multi-tenant SaaS platform designed for sports organizations, featuring dynamic organization switching and role management.',
+        points: [
+          'Multi-Tenancy: Allows users to switch between different organizations (Academies/Clubs) seamlessly within a single app.',
+          'Dynamic Dashboards: UI adapts based on the selected sport (Cricket/Football) and user role.',
+          'Performance Tracking: Comprehensive tools for coaches to track athlete progress.'
+        ],
+        tech: [
+          'Flutter',
+          'SaaS Architecture',
+          'Clean Architecture',
+          'BLoC',
+          'REST APIs',
+          'Multi-tenancy'
+        ],
+        playStore:
+            'https://play.google.com/store/apps/details?id=com.sync.rays',
+        gitHub: '',
+        imageURL: 'assets/logos/sync-logo.png'),
     ProjectModel(
-        title: 'Instagram Clone',
-        dencription:
-            'I developed an Instagram clone with a responsive and dynamic interface, closely replicating the core layout and features of Instagram. Built with HTML, CSS, and JavaScript, the project dynamically loads content, creating a fluid, interactive experience similar to the real platform.\n\nUsing HTML for structure, CSS and media queries for responsive design, and JavaScript to add interactive, dynamic content, the clone offers a realistic simulation of Instagram’s feed, profile sections, and post interactions. The responsive design ensures a seamless experience across all devices, adapting smoothly to mobile, tablet, and desktop views.',
-        url: 'https://github.com/MohammedRiswan4400/insta-clone',
-        imageURL: 'assets/instagram.jpg'),
+        title: 'Convosys - Convention Management',
+        subTitle:
+            'A subscription-based SaaS product streamlining operations for convention centers, including booking, billing, and staff management.',
+        points: [
+          'Complex Booking Engine: Handles slot availability, conflict detection, and calendar management.',
+          'Subscription Model: Integrated recurring payment logic for venue owners.',
+          'Staff Tracking: Features for managing employee shifts and tasks.'
+        ],
+        tech: [
+          'Flutter',
+          'Business Logic',
+          'Supabase',
+          'Push Notification',
+        ],
+        playStore:
+            'https://play.google.com/store/apps/details?id=com.convosys.app&pcampaignid=web_share',
+        gitHub: '',
+        imageURL: 'assets/logos/convosys-logo.png'),
     ProjectModel(
-        title: 'Netflix Clone',
-        dencription:
-            'I developed a Netflix clone, recreating the look and feel of the platform\'s user interface using HTML and CSS. This static website project showcases essential design elements like layout, typography, and responsive styling, all modeled to resemble the popular streaming service. Although it doesn\'t include dynamic content or video playback, this clone effectively captures the visual design of Netflix and demonstrates my skills in web design and front-end development.',
-        url: 'https://github.com/MohammedRiswan4400/netflix-clone',
-        imageURL: 'assets/netflix.jpg'),
-    ProjectModel(
-        title: 'Youtube Clone',
-        dencription:
-            'I developed a YouTube clone as a static website using HTML, CSS, and media queries to replicate the design and layout of the YouTube interface. The project is fully responsive, ensuring an optimal viewing experience across various screen sizes. \n\nWith HTML as the structure, CSS for styling, and media queries to handle responsiveness, the site mimics YouTube’s homepage layout, including video thumbnails, a navigation bar, and a sidebar for suggested content. Though it’s a static site without dynamic content, the layout and design offer an authentic look and feel, demonstrating strong foundational skills in web design and responsiveness.',
-        url: 'https://github.com/MohammedRiswan4400/YouTube-clone',
-        imageURL: 'assets/youtybe.jpg'),
+        title: 'E.A.MUNC Conference App',
+        subTitle:
+            'The official conference management application for Indian School Al Ghubra (Oman), facilitating their annual Model United Nations event.',
+        points: [
+          'Global Deployment: Successfully managed the end-to-end release process on both Google Play Store and Apple App Store, ensuring compliance with international guidelines.'
+        ],
+        tech: [
+          'Flutter',
+          'Git',
+          'Play Store Deployment',
+          'App Store Deployment'
+        ],
+        playStore:
+            'https://play.google.com/store/apps/details?id=com.eamuncnew.org.ea_munc.ea_munc_new',
+        gitHub: '',
+        imageURL: 'assets/logos/eamunc-logo.png'),
   ];
   @override
   void didChangeDependencies() {
@@ -98,9 +158,10 @@ class _ScreenProjectsState extends State<ScreenProjects>
 
   Widget desktopView(BuildContext context) {
     double space = context.kHeight * 0.03;
-    List<Widget> images =
-        List.generate((projects.length * 1.5).ceil(), (index) {
+    List<Widget> images = List.generate((projects.length * 2) - 1, (index) {
       if (index.isEven) {
+        // index = 0, 2, 4, 6, 8 (5 projects)
+        // index ~/ 2 = 0, 1, 2, 3, 4 (Accesses all 5 projects)
         return ProjectImage(
             isSelected: selecTedIndex == index ~/ 2 ? true : false,
             project: projects[index ~/ 2],
@@ -108,6 +169,7 @@ class _ScreenProjectsState extends State<ScreenProjects>
               updateIndex(index ~/ 2);
             });
       } else {
+        // index = 1, 3, 5, 7 (4 spaces)
         return SizedBox(
           height: space,
         );

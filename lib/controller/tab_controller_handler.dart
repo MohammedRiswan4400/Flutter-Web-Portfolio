@@ -7,8 +7,8 @@ class TabControllerHandler extends InheritedWidget {
     super.key,
     // required Key key,
     required this.tabController,
-    required Widget child,
-  }) : super(child: child);
+    required super.child,
+  });
 
   static TabControllerHandler? of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<TabControllerHandler>();

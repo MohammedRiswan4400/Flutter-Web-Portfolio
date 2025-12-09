@@ -41,17 +41,17 @@ class WidgetBottomBar extends StatelessWidget {
                             'https://www.linkedin.com/in/mohammed-riswan-mt?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
                         iconData: FontAwesomeIcons.linkedin,
                         color: Colors.white),
-                    SizedBox(
-                      width: kWidth * 0.021,
-                    ),
-                    const CustomeIconButton(
-                        url: 'https://github.com/MohammedRiswan4400',
-                        iconData: FontAwesomeIcons.instagram,
-                        color: Color.fromARGB(255, 255, 255, 255)),
+                    // SizedBox(
+                    //   width: kWidth * 0.021,
+                    // ),
+                    // const CustomeIconButton(
+                    //     url: 'https://github.com/MohammedRiswan4400',
+                    //     iconData: FontAwesomeIcons.instagram,
+                    //     color: Color.fromARGB(255, 255, 255, 255)),
                   ],
                 ),
                 const Text(
-                  'Made with Flutter Web \u00a9 2024',
+                  'Made with Flutter Web',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 10,

@@ -147,7 +147,7 @@ class ProjectImageOnMobile extends StatelessWidget {
                 color: Colors.black,
               ),
               GestureDetector(
-                onTap: () => openURL(project.url),
+                onTap: () => openURL(project.gitHub),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
